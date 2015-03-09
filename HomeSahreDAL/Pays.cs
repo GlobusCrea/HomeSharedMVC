@@ -12,7 +12,6 @@ namespace HomeShareDAL
 
         private int _idPays;
         private string _Libelle;
-        private List<Membre> _lstMbres;
 
         #endregion
 
@@ -30,9 +29,13 @@ namespace HomeShareDAL
             set { _Libelle = value; }
         }
 
-        public List<Membre> LstMbres
+        #endregion
+
+        #region Navigation Properties
+
+        public List<BienEchange> LstBiens
         {
-            get { return _lstMbres = _lstMbres ?? getLstMbres(this.idPays) ; }
+            get { return BienEchange.getBiensByPays(this.idPays); }
         }
 
         #endregion
@@ -66,7 +69,16 @@ namespace HomeShareDAL
             return pays;
         }
 
-        #endregion
+        public static Pays getPaysByBiens(int idP)
+        {
+            string strRequest = @"SELECT Pays.* FROM BienEchange INNER JOIN Pays ON Pays.idPays = BienEchange.Pays WHERE BienEchange.Pays = " + idP;
+            List<Dictionary<string, object>> paysDatas = GestionConnexion.Instance.getData(strRequest);
+            if (paysDatas.Count < 1) return null;
 
+            Pays p = getChampsPays(paysDatas[0]);
+            return p;
+        }
+
+        #endregion
     }
 }

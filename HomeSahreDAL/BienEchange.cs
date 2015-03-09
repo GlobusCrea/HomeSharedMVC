@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeShareDAL
 {
-    class BienEchange
+    public class BienEchange
     {
         #region Field
 
@@ -15,7 +15,7 @@ namespace HomeShareDAL
         private string _DescCourte;
         private string _DescLong;
         private int _NbrePerson;
-        private int _Pays;
+        private int _idPays;
         private string _Ville;
         private string _Rue;
         private string _Numero;
@@ -63,10 +63,10 @@ namespace HomeShareDAL
             set { _NbrePerson = value; }
         }
 
-        public int Pays
+        public int idPays
         {
-            get { return _Pays; }
-            set { _Pays = value; }
+            get { return _idPays; }
+            set { _idPays = value; }
         }
 
         public string Ville
@@ -140,6 +140,127 @@ namespace HomeShareDAL
             get { return _DateCreation; }
             set { _DateCreation = value; }
         }
+
+        #endregion
+
+        #region navigation Properties
+
+        /// <summary>
+        /// Propriété permettant de récupérer le pays d'un bien
+        /// </summary>
+        public Pays pays
+        {
+            get { return Pays.getPaysByBiens(this.idPays); }
+        }
+
+        /// <summary>
+        /// Propriété permettant de récupérer le membre lié au bien
+        /// </summary>
+        public Membre mbre
+        {
+            get { return Membre.getMbreByBiens(this.idMembre); }
+        }
+
+        #endregion
+
+        #region static
+
+        public static BienEchange getChampsBiens(Dictionary<string,object> item)
+        {
+            BienEchange bien = new BienEchange();
+            bien.idBien = (int)item["idBien"];
+            bien.titre = item["titre"].ToString();
+            bien.DescCourte = item["DescCourte"].ToString();
+            bien.DescLong = item["DescLong"].ToString();
+            bien.NbrePerson = (int)item["NombrePerson"];
+            bien.idPays = (int)item["Pays"];
+            bien.Ville = item["Ville"].ToString();
+            bien.Rue = item["Rue"].ToString();
+            bien.Numero = item["Numero"].ToString();
+            bien.CP = item["CodePostal"].ToString();
+            bien.Photo = item["Photo"].ToString();
+            bien.Assurance = item["AssuranceObligatoire"].ToString();
+            bien.isEnabled = (bool)item["isEnabled"];
+            bien.DisabledDate = DateTime.Parse(item["DisabledDate"].ToString());
+            bien.Latitude = item["Latitude"].ToString();
+            bien.Longitude = item["Longitude"].ToString();
+            bien.idMembre = (int)item["idMembre"];
+            bien.DateCreation = DateTime.Parse(item["DateCreation"].ToString());
+            return bien;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir la lsite de tous les biens
+        /// </summary>
+        public static List<BienEchange> lstBiens()
+        {
+            string strRequest = @"SELECT * FROM BienEchange";
+            List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
+            List<BienEchange> lstBiens = new List<BienEchange>();
+            if (biensDatas.Count < 1) return null;
+
+            foreach (Dictionary<string, object> item in biensDatas)
+            {
+                BienEchange biens = getChampsBiens(item);
+                lstBiens.Add(biens);
+            }
+            return lstBiens;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir un seul bien
+        /// </summary>
+        /// <param name="idBien">identifiant du bien</param>
+        /// <returns>Le bien dont l'identifiant est passé en paramètre</returns>
+        public static BienEchange getOneBien(int idBien)
+        {
+            string strRequest = @"SELECT * FROM BienEchange WHERE idBien = " + idBien;
+            List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
+            BienEchange bien = getChampsBiens(biensDatas[0]);
+            return bien;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir la liste des biens liée au pays
+        /// </summary>
+        /// <param name="idP">identifiant du pays</param>
+        /// <returns>La liste des biens dont l'identifiant est passé en paramètre</returns>
+        public static List<BienEchange> getBiensByPays(int idP)
+        {
+            string strRequest = @"SELECT * FROM BienEchange WHERE Pays = " + idP;
+            List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
+            List<BienEchange> lstBiens = new List<BienEchange>();
+            if (biensDatas.Count < 1) return null;
+
+            foreach(Dictionary<string,object> item in biensDatas)
+            {
+                BienEchange biens = getChampsBiens(item);
+                lstBiens.Add(biens);
+            }
+            return lstBiens;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir la liste des biens liée au membre
+        /// </summary>
+        /// <param name="idM">identifiant du membre</param>
+        /// <returns>La liste des biens dont l'identifiant est passé en paramètre</returns>
+        public static List<BienEchange> getBiensByMbre(int idM)
+        {
+            string strRequest = @"SELECT * FROM BienEchange WHERE idMembre = " + idM;
+            List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
+            List<BienEchange> lstBiens = new List<BienEchange>();
+            if (biensDatas.Count < 1) return null;
+
+            foreach (Dictionary<string, object> item in biensDatas)
+            {
+                BienEchange biens = getChampsBiens(item);
+                lstBiens.Add(biens);
+            }
+            return lstBiens;
+        }
+
+
 
         #endregion
     }

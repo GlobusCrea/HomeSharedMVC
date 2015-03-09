@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace HomeShareDAL
 {
-    class Pays
+    public class Pays
     {
+        /// <summary>
+        /// Classe liée à la table Pays dans HomeShareDB
+        /// </summary>
+
         #region Fields
 
         private int _idPays;
@@ -33,6 +37,9 @@ namespace HomeShareDAL
 
         #region Navigation Properties
 
+        /// <summary>
+        /// Propriété permettant de récupérer la liste des biens liée au pays
+        /// </summary>
         public List<BienEchange> LstBiens
         {
             get { return BienEchange.getBiensByPays(this.idPays); }
@@ -42,6 +49,9 @@ namespace HomeShareDAL
 
         #region Static
 
+        /// <summary>
+        /// Permet d'obtenir les champs de la table Pays
+        /// </summary>
         public static Pays getChampsPays(Dictionary<string, object> item)
         {
             Pays pays = new Pays();
@@ -50,6 +60,9 @@ namespace HomeShareDAL
             return pays;
         }
 
+        /// <summary>
+        /// Permet d'obtenir le liste de tous les pays
+        /// </summary>
         public static List<Pays> getAllPays()
         {
             List<Dictionary<string, object>> mesPays = GestionConnexion.Instance.getData("SELECT * FROM Pays");
@@ -62,6 +75,11 @@ namespace HomeShareDAL
             return lstPays;
         }
 
+        /// <summary>
+        /// Permet d'obtenir un seul pays
+        /// </summary>
+        /// <param name="idPays">identifiant du pays</param>
+        /// <returns>Le pays dont l'identifiant est passé en paramètre</returns>
         public static Pays getOnePays(int idPays)
         {
             List<Dictionary<string, object>> mesPays = GestionConnexion.Instance.getData("SELECT * FROM Pays WHERE idPays = " + idPays);
@@ -69,14 +87,19 @@ namespace HomeShareDAL
             return pays;
         }
 
+        /// <summary>
+        /// Permet d'obtenir le pays lié au bien
+        /// </summary>
+        /// <param name="idP">identifiant du pays</param>
+        /// <returns>Le pays du bien dont l'identifiant est passé en paramètre</returns>
         public static Pays getPaysByBiens(int idP)
         {
             string strRequest = @"SELECT Pays.* FROM BienEchange INNER JOIN Pays ON Pays.idPays = BienEchange.Pays WHERE BienEchange.Pays = " + idP;
             List<Dictionary<string, object>> paysDatas = GestionConnexion.Instance.getData(strRequest);
             if (paysDatas.Count < 1) return null;
 
-            Pays p = getChampsPays(paysDatas[0]);
-            return p;
+            Pays pays = getChampsPays(paysDatas[0]);
+            return pays;
         }
 
         #endregion

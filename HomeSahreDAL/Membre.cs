@@ -18,8 +18,6 @@ namespace HomeShareDAL
         private string _Telephone;
         private string _Login;
         private string _Password;
-        private List<BienEchange> _lstBiens;
-        //private List<Pays> _lstPays;
 
         #endregion
 
@@ -73,20 +71,27 @@ namespace HomeShareDAL
             set { _Password = value; }
         }
 
-        public List<BienEchange> lstBiens
-        {
-            get { return _lstBiens = _lstBiens ?? getLstBiens(this.idMembre); }
-        }
+        #endregion
 
-        //public List<Pays> lstPays
-        //{
-        //    get { return _lstPays = _lstPays ?? getPaysMbre(this.idMembre); }
-        //}
+        #region Navigation properties
+
+        /// <summary>
+        /// Propriété permettant de récupérer la liste des biens liée au membre
+        /// </summary>
+        public List<BienEchange> bien
+        {
+            get { return BienEchange.getBiensByMbre(this.idMembre); }
+        }
 
         #endregion
 
         #region Static
 
+        /// <summary>
+        /// Permet d'obtenir un seul membre
+        /// </summary>
+        /// <param name="idMembre">identifiant du membre</param>
+        /// <returns>Le membre dont l'identifiant est passé en paramètre</returns>
         public static Membre getOneMembre(int idMembre)
         {
             List<Dictionary<string, object>> unMbre = GestionConnexion.Instance.getData("SELECT * FROM Membre WHERE idAuteur =" + idMembre);
@@ -95,6 +100,9 @@ namespace HomeShareDAL
             return mbre;
         }
 
+        /// <summary>
+        /// Permet d'obtenir le liste de tous les membres
+        /// </summary>
         public static List<Membre> getAllMembres()
         {
             List<Dictionary<string, object>> desMembres = GestionConnexion.Instance.getData("SELECT * FROM Membre");
@@ -108,6 +116,12 @@ namespace HomeShareDAL
             return lstMbre;
         }
 
+        /// <summary>
+        /// Permet d'obtenir le login et le password du membre
+        /// </summary>
+        /// <param name="login">login du membre</param>
+        /// <param name="password">password du membre</param>
+        /// <returns>Le membre dont le login et le password sont passés en paramètre</returns>
         public static Membre getLoginPass(string login, string password)
         {
             List<Dictionary<string, object>> lp = GestionConnexion.Instance.getData("SELECT * from Membre WHERE Login='" + login + "' and Password='" + password + "'");
@@ -120,23 +134,29 @@ namespace HomeShareDAL
             return null;
         }
 
-        //public static BienEchange getChampsBiens(Dictionary<string, object> item)
-        //{
-        //    BienEchange bien = new BienEchange();
-        //    bien. = (int)item["idBien"];
-        //    bien.idAuteur = item["titre"].ToString();
-        //    bien.NewsPicture = item["NewsPicture"].ToString();
-        //    bien.NewsDate = (DateTime)item["NewsDate"];
-        //    bien.NewsTitre = item["NewsTitre"].ToString();
-        //    bien.NewsTxt = item["NewsTxt"].ToString();
-        //    bien.NewsResume = item["NewsResume"].ToString();
-        //    return bien;
-        //}
+        /// <summary>
+        /// Permet d'obtenir le membre lié au bien
+        /// </summary>
+        /// <param name="idM">identifiant du membre</param>
+        /// <returns>Le pays du bien dont l'identifiant est passé en paramètre</returns>
+        public static Membre getMbreByBiens(int idM)
+        {
+            string strRequest = @"SELECT Membre.* FROM BienEchange INNER JOIN Membre ON Membre.idMembre = BienEchange.idMembre WHERE BienEchange.idMembre = " + idM;
+            List<Dictionary<string, object>> mbreDatas = GestionConnexion.Instance.getData(strRequest);
+            if (mbreDatas.Count < 1) return null;
+
+            Membre mbre = new Membre();
+            mbre.getChampsMbre(mbreDatas[0]);
+            return mbre;
+        }
 
         #endregion
 
         #region Function
 
+        /// <summary>
+        /// Permet d'obtenir les champs de la table Membre
+        /// </summary>
         public void getChampsMbre(Dictionary<string, object> item)
         {
             this.idMembre = (int)item["idMembre"];
@@ -149,17 +169,6 @@ namespace HomeShareDAL
             this.Password = item["Password"].ToString();
         }
 
-        //public List<BienEchange> getLstBiens()
-        //{
-        //    List<Dictionary<string, object>> desBiens = GestionConnexion.Instance.getData("SELECT * FROM BienEchange WHERE idMembre = " + this.idMembre);
-        //    List<BienEchange> lstBiens = new List<BienEchange>();
-        //    foreach (Dictionary<string, object> item in desBiens)
-        //    {
-        //        BienEchange bien = new BienEchange();
-        //        bien
-        //    }
-        //    return lstBiens;
-        //}
 
         #endregion
 

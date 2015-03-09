@@ -12,6 +12,7 @@ namespace HomeShareDAL
 
         private int _idPays;
         private string _Libelle;
+        private List<Membre> _lstMbres;
 
         #endregion
 
@@ -27,6 +28,11 @@ namespace HomeShareDAL
         {
             get { return _Libelle; }
             set { _Libelle = value; }
+        }
+
+        public List<Membre> LstMbres
+        {
+            get { return _lstMbres = _lstMbres ?? getLstMbres(this.idPays) ; }
         }
 
         #endregion
@@ -59,7 +65,6 @@ namespace HomeShareDAL
             Pays pays = getChampsPays(mesPays[0]);
             return pays;
         }
-
 
         #endregion
 

@@ -141,19 +141,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\images\about.jpg" />
     <Content Include="Content\images\advertisements.jpg" />
-    <Content Include="Content\images\agents\1.jpg" />
-    <Content Include="Content\images\agents\2.jpg" />
-    <Content Include="Content\images\agents\3.jpg" />
-    <Content Include="Content\images\agents\4.jpg" />
     <Content Include="Content\images\banner.jpg" />
     <Content Include="Content\images\bg.jpg" />
     <Content Include="Content\images\bginside.jpg" />
     <Content Include="Content\images\bgmain.png" />
-    <Content Include="Content\images\blog\1.jpg" />
-    <Content Include="Content\images\blog\2.jpg" />
-    <Content Include="Content\images\blog\3.jpg" />
-    <Content Include="Content\images\blog\4.jpg" />
-    <Content Include="Content\images\blog\5.jpg" />
     <Content Include="Content\images\facebook.png" />
     <Content Include="Content\images\instagram.png" />
     <Content Include="Content\images\linkedin.png" />
@@ -177,7 +168,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />

@@ -5,25 +5,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/style.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.js"></script>
-    <script src="assets/script.js"></script>
+    <script type="text/javascript" src="Scripts/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.slitslider.js"></script>
+    
+    @*<link rel="stylesheet" href="Content/css/bootstrap.css" />
+    <link rel="stylesheet" href="Content/css/style.css" />
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/script.js"></script>
 
     <!-- Owl stylesheet -->
-    <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
-    <script src="assets/owl-carousel/owl.carousel.js"></script>
+    <link rel="stylesheet" href="Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="Content/css/owl.theme.css">
+    <script src="Scripts/owl.carousel.js"></script>
     <!-- Owl stylesheet -->
     
     <!-- slitslider -->
-    <link rel="stylesheet" type="text/css" href="assets/slitslider/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="assets/slitslider/css/custom.css" />
-    <script type="text/javascript" src="assets/slitslider/js/modernizr.custom.79639.js"></script>
-    <script type="text/javascript" src="assets/slitslider/js/jquery.ba-cond.min.js"></script>
-    <script type="text/javascript" src="assets/slitslider/js/jquery.slitslider.js"></script>
-    <!-- slitslider -->
+    <link rel="stylesheet" type="text/css" href="Content/css/slitsliderStyle.css" />
+    <link rel="stylesheet" type="text/css" href="Content/css/slitsliderCustom.css" />
+    <!-- slitslider -->*@
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/carousel")
+    
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")*@
+
 </head>
 
 <body>
@@ -45,8 +54,6 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="about.php">About</a></li>
-                        <li><a href="agents.php">Agents</a></li>
-                        <li><a href="blog.php">Blog</a></li>
                         <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
@@ -59,14 +66,136 @@
     <div class="container">
         <!-- Header Starts -->
         <div class="header">
-            <a href="index.php"><img src="images/logo.png" alt="Realestate"></a>
+            <a href="index.php"><img src="~/Content/images/logo.png" alt="Realestate"></a>
             <ul class="pull-right">
-                <li><a href="buysalerent.php">Buy</a></li>
-                <li><a href="buysalerent.php">Sale</a></li>
-                <li><a href="buysalerent.php">Rent</a></li>
+               <li><a href="buysalerent.php">Echanger votre maison en toute confiance</a></li>
             </ul>
         </div>
         <!-- #Header Ends -->
+    </div>
+
+    <div class="">
+        <div id="slider" class="sl-slider-wrapper">
+            <div class="sl-slider">
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img bg-img-1"></div>
+                        <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+                        <blockquote>
+                            <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+                            <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
+                            <cite>$ 20,000,000</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img bg-img-2"></div>
+                        <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+                        <blockquote>
+                            <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+                            <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
+                            <cite>$ 20,000,000</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img bg-img-3"></div>
+                        <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+                        <blockquote>
+                            <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+                            <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
+                            <cite>$ 20,000,000</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img bg-img-4"></div>
+                        <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+                        <blockquote>
+                            <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+                            <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
+                            <cite>$ 20,000,000</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img bg-img-5"></div>
+                        <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+                        <blockquote>
+                            <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+                            <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
+                            <cite>$ 20,000,000</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <!-- /sl-slider -->
+
+            <nav id="nav-dots" class="nav-dots">
+                <span class="nav-dot-current"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+        </div><!-- /slider-wrapper -->
+    </div>
+
+    <div class="banner-search">
+        <div class="container">
+            <!-- banner -->
+            <h3>Rechercher une location</h3>
+            <div class="searchbar">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <input type="text" class="form-control" placeholder="Search of Properties">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3 ">
+                                <select class="form-control">
+                                    <option>Buy</option>
+                                    <option>Rent</option>
+                                    <option>Sale</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-4">
+                                <select class="form-control">
+                                    <option>Price</option>
+                                    <option>$150,000 - $200,000</option>
+                                    <option>$200,000 - $250,000</option>
+                                    <option>$250,000 - $300,000</option>
+                                    <option>$300,000 - above</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-4">
+                                <select class="form-control">
+                                    <option>Property</option>
+                                    <option>Apartment</option>
+                                    <option>Building</option>
+                                    <option>Office Space</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-4">
+                                <button class="btn btn-success" onclick="window.location.href='buysalerent.php'">Find Now</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
+                        <p>Join now and get updated with all the properties deals.</p>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#loginpop">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     @RenderBody()
@@ -78,8 +207,6 @@
                     <h4>Information</h4>
                     <ul class="row">
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.php">About</a></li>
-                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="agents.php">Agents</a></li>
-                        <li class="col-lg-12 col-sm-12 col-xs-3"><a href="blog.php">Blog</a></li>
                         <li class="col-lg-12 col-sm-12 col-xs-3"><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
@@ -95,23 +222,23 @@
 
                 <div class="col-lg-3 col-sm-3">
                     <h4>Follow us</h4>
-                    <a href="#"><img src="images/facebook.png" alt="facebook"></a>
-                    <a href="#"><img src="images/twitter.png" alt="twitter"></a>
-                    <a href="#"><img src="images/linkedin.png" alt="linkedin"></a>
-                    <a href="#"><img src="images/instagram.png" alt="instagram"></a>
+                    <a href="#"><img src="~/Content/images/facebook.png" alt="facebook"></a>
+                    <a href="#"><img src="~/Content/images/twitter.png" alt="twitter"></a>
+                    <a href="#"><img src="~/Content/images/linkedin.png" alt="linkedin"></a>
+                    <a href="#"><img src="~/Content/images/instagram.png" alt="instagram"></a>
                 </div>
 
                 <div class="col-lg-3 col-sm-3">
                     <h4>Contact us</h4>
                     <p>
-                        <b>Bootstrap Realestate Inc.</b><br>
+                        <b>WAD14ASP Realestate Inc.</b><br>
                         <span class="glyphicon glyphicon-map-marker"></span> 8290 Walk Street, Australia <br>
-                        <span class="glyphicon glyphicon-envelope"></span> hello@bootstrapreal.com<br>
+                        <span class="glyphicon glyphicon-envelope"></span> hello@wad14aspreal.com<br>
                         <span class="glyphicon glyphicon-earphone"></span> (123) 456-7890
                     </p>
                 </div>
             </div>
-            <p class="copyright">Copyright 2013. All rights reserved.	</p>
+            <p class="copyright">Copyright 2015. All rights reserved.	</p>
         </div>
     </div>
 

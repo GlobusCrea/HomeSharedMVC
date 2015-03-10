@@ -8,6 +8,10 @@ namespace HomeShareDAL
 {
     public class Membre
     {
+        /// <summary>
+        /// Classe liée à la table Membre dans HomeShareDB
+        /// </summary>
+        
         #region Fields
 
         private int _idMembre;

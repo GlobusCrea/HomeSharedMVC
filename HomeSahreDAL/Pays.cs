@@ -55,8 +55,8 @@ namespace HomeShareDAL
         public static Pays getChampsPays(Dictionary<string, object> item)
         {
             Pays pays = new Pays();
-            pays.idPays = (int)item[""];
-            pays.Libelle = item[""].ToString();
+            pays.idPays = (int)item["idPays"];
+            pays.Libelle = item["Libelle"].ToString();
             return pays;
         }
 

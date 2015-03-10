@@ -8,6 +8,10 @@ namespace HomeShareDAL
 {
     public class BienEchange
     {
+        /// <summary>
+        /// Classe liée à la table BienEchange dans HomeShareDB
+        /// </summary>
+        
         #region Field
 
         private int _idBien;
@@ -159,6 +163,11 @@ namespace HomeShareDAL
         public Membre mbre
         {
             get { return Membre.getMbreByBiens(this.idMembre); }
+        }
+
+        public OptionsBien optionsBien
+        {
+            get { return OptionsBien.getOptionsByBien(this.idBien); }
         }
 
         #endregion

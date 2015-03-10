@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvisMembreBien.cs" />
     <Compile Include="BienEchange.cs" />
     <Compile Include="GestionConnexion.cs" />
     <Compile Include="Membre.cs" />
+    <Compile Include="MembreBienEchange.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="OptionsBien.cs" />
     <Compile Include="Pays.cs" />

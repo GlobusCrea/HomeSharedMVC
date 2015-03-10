@@ -165,9 +165,18 @@ namespace HomeShareDAL
             get { return Membre.getMbreByBiens(this.idMembre); }
         }
 
+        /// <summary>
+        /// Propriété permettant de récupérer les options liées au bien
+        /// </summary>
         public OptionsBien optionsBien
         {
             get { return OptionsBien.getOptionsByBien(this.idBien); }
+        }
+
+
+        public List<AvisMembreBien> avisMbre
+        {
+            get { return AvisMembreBien.getAvisByBiens(this.idBien); }
         }
 
         #endregion

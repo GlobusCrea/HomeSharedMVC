@@ -48,6 +48,11 @@ namespace HomeShareDAL
             return option;
         }
 
+        /// <summary>
+        /// Permet d'obtenir une seule option
+        /// </summary>
+        /// <param name="idOption">identifiant de l'option</param>
+        /// <returns>L'option dont l'identifiant est passé en paramètre</returns>
         public static Options getOneOption(int idOption)
         {
             string strRequest = @"SELECT * FROM Options WHERE idOption = " + idOption;

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Realestate Bootstrap Theme </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.slitslider.js"></script>
+
+    @*<link rel="stylesheet" href="Content/css/bootstrap.css" />
+        <link rel="stylesheet" href="Content/css/style.css" />
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/script.js"></script>
+
+        <!-- Owl stylesheet -->
+        <link rel="stylesheet" href="Content/css/owl.carousel.css">
+        <link rel="stylesheet" href="Content/css/owl.theme.css">
+        <script src="Scripts/owl.carousel.js"></script>
+        <!-- Owl stylesheet -->
+
+        <!-- slitslider -->
+        <link rel="stylesheet" type="text/css" href="Content/css/slitsliderStyle.css" />
+        <link rel="stylesheet" type="text/css" href="Content/css/slitsliderCustom.css" />
+        <!-- slitslider -->*@
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/carousel")
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+
+<body>
+    <!-- Header Starts -->
+    <div class="navbar-wrapper">
+        <div class="navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Nav Starts -->
+                <div class="navbar-collapse  collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.php">Home</a></li>
+                        <li><a href="about.php">A Propos</a></li>
+                        <li><a href="about.php">Les propriétaires</a></li>
+                        <li><a href="about.php">Les biens en échange</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- #Nav Ends -->
+            </div>
+        </div>
+    </div>
+    <!-- #Header Ends -->
+
+    <div class="container">
+        <!-- Header Starts -->
+        <div class="header">
+            <a href="index.php"><img src="~/Content/images/logo.png" alt="Realestate"></a>
+            <ul class="pull-right">
+                <li><a href="buysalerent.php">Echanger</a></li>
+                <li><a href="buysalerent.php">Visiter</a></li>
+                @*<li><a href="buysalerent.php">Se connecter</a></li>*@
+                @if (HomeSharedMVC.Helper.SessionTools.Login == null)
+                {
+                    <li><a href="~/Admin/Login/Login">Login</a></li>
+                }
+                else
+                {
+                    <li><a href="~/Admin/Login/LogOut">Logout</a></li>
+                }
+            </ul>
+        </div>
+        <!-- #Header Ends -->
+    </div>
+
+    @RenderBody()
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Information</h4>
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Newsletter</h4>
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Follow us</h4>
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Contact us</h4>
+                </div>
+            </div>
+            <p class="copyright">Copyright 2015. All rights reserved.	</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

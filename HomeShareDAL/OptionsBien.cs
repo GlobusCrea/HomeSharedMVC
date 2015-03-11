@@ -42,7 +42,7 @@ namespace HomeShareDAL
 
         public static OptionsBien getOptionsByBien(int idBien)
         {
-            string strRequest = @"SELECT * FROM OptionBien WHERE idBien = " + idBien;
+            string strRequest = @"SELECT * FROM OptionsBien WHERE idBien = " + idBien;
             List<Dictionary<string, object>> OptionDatas = GestionConnexion.Instance.getData(strRequest);
             OptionsBien op = new OptionsBien();
             foreach(Dictionary<string, object> item in OptionDatas)

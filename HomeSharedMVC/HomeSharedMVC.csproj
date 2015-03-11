@@ -123,12 +123,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AboutHelper.cs" />
+    <Compile Include="Helper\ProprioHelper.cs" />
     <Compile Include="Helper\SessionTools.cs" />
-    <Compile Include="Models\WrapperHomePage.cs" />
+    <Compile Include="Models\Wrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\images\agents\1.jpg" />
+    <Content Include="Content\images\agents\2.jpg" />
+    <Content Include="Content\images\agents\3.jpg" />
+    <Content Include="Content\images\agents\4.jpg" />
     <Content Include="Content\images\logoPetitBlanc.png" />
     <Content Include="fonts\din.svg" />
     <Content Include="Content\images\AjaxLoader.gif" />
@@ -198,6 +203,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\_lstMeilleursBiens.cshtml" />
     <Content Include="Views\Home\_lstDerniersBiens.cshtml" />
+    <Content Include="Views\Home\Design.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -10,11 +10,16 @@ namespace HomeSharedMVC.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Design()
+        {
+            return View();
+        }
+        
         public ActionResult Index()
         { 
-            WrapperHomePage whp = new WrapperHomePage();
+            Wrapper whp = new Wrapper();
             whp.lstBiensMeilleursAvis = BienEchange.getDernierBien();
-            whp.lstBiensDerniersEchange = BienEchange.getDernierBien(); ;
+            whp.lstBiensDerniersEchange = BienEchange.getDernierBien();
             return View("Index", whp);
         }
     }

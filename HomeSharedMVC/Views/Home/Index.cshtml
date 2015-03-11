@@ -1,5 +1,6 @@
 ﻿@using HomeSharedMVC.Helper
-@model HomeSharedMVC.Models.WrapperHomePage
+@using HomeShareDAL
+@model HomeSharedMVC.Models.Wrapper
 
 <!-- banner -->
 <div class="container">
@@ -7,7 +8,7 @@
         <a href="buysalerent.php" class="pull-right viewall">View All Listing</a>
         <h2>Les meilleurs échanges</h2>
         <div id="owl-example" class="owl-carousel">
-            @foreach (HomeShareDAL.BienEchange currentBiens in Model.lstBiensMeilleursAvis)
+            @foreach (BienEchange currentBiens in Model.lstBiensMeilleursAvis)
             {
                 Html.RenderPartial("_lstMeilleursBiens", currentBiens);
             }
@@ -19,7 +20,7 @@
 
             <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
                 <h3>Les derniers biens en échange</h3>
-                @foreach (HomeShareDAL.BienEchange currentBiens in Model.lstBiensDerniersEchange)
+                @foreach (BienEchange currentBiens in Model.lstBiensDerniersEchange)
                 {
                     Html.RenderPartial("_lstDerniersBiens", currentBiens);
                 }

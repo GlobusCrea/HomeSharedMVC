@@ -6,10 +6,11 @@ using System.Web;
 
 namespace HomeSharedMVC.Models
 {
-    public class WrapperHomePage
+    public class Wrapper
     {
         List<BienEchange> _lstBiensMeilleursAvis;
         List<BienEchange> _lstBiensDerniersEchange;
+        Membre _mbre;
 
         public List<BienEchange> lstBiensMeilleursAvis
         {
@@ -21,6 +22,12 @@ namespace HomeSharedMVC.Models
         {
             get { return _lstBiensDerniersEchange; }
             set { _lstBiensDerniersEchange = value; }
+        }
+
+        public Membre mbre
+        {
+            get { return _mbre; }
+            set { _mbre = value; }
         }
     }
 }

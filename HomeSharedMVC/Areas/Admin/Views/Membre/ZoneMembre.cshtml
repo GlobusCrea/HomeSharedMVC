@@ -1,17 +1,31 @@
-﻿@{
+﻿@using HomeSharedMVC.Helper
+@model HomeSharedMVC.Models.Wrapper
+@{
     Layout = "~/Areas/Admin/Views/Shared/_AreaLayout.cshtml";
 }
 
 <div class="container">
-    <div class="searchbar">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
+            <div class="row">
+                <button class="btn btn-success">Mes biens</button><br />
+                <button class="btn btn-success">Ajouter un bien</button><br />
+                <button class="btn btn-success">Les demandes d'échanges</button><br />
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer agents">
         <div class="row">
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-8  col-lg-offset-2 col-sm-12">
+                <!-- agents -->
                 <div class="row">
-                    <button class="btn btn-success">Mes biens</button><br />
-                    <button class="btn btn-success">Ajouter un bien</button><br />
-                    <button class="btn btn-success">Les demandes d'échanges</button><br />
+                    <div class="col-lg-2 col-sm-2 "><a href="#"><img src="~/Content/images/agents/2.jpg" class="img-responsive" alt="agent name"></a></div>
+                    @Html.Proprio()
+                    <!-- agents -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+

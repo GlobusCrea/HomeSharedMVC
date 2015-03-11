@@ -25,7 +25,8 @@ namespace HomeSharedMVC.Areas.Admin.Controllers
             if (m != null)
             {
                 SessionTools.Login = m.Login;
-                return RedirectToRoute(new { area = "", controller = "Home", action = "Index" });
+                
+                return RedirectToRoute(new { area = "Admin", controller = "Membre", action = "ZoneMembre" });
             }
             else
             {

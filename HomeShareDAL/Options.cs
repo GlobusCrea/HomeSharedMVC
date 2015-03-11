@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeShareDAL
 {
-    class Options
+    public class Options
     {
         /// <summary>
         /// Classe liée à la table Options dans HomeShareDB
@@ -60,5 +60,7 @@ namespace HomeShareDAL
             Options option = getChampsOptions(OptionDatas[0]);
             return option;
         }
+
+        #endregion
     }
 }

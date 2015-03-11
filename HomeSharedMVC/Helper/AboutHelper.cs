@@ -24,7 +24,7 @@ namespace HomeSharedMVC.Helper
             tagH3.SetInnerText("A Propos");
 
             TagBuilder tagP = new TagBuilder("p");
-            tagP.SetInnerText("Examen de fin de formation en ASP.NET des WAD14");
+            tagP.SetInnerText("Epreuve de fin de formation en ASP.NET des WAD14");
 
             tagDiv.InnerHtml = tagH3.ToString();
             tagDiv.InnerHtml += tagP.ToString();

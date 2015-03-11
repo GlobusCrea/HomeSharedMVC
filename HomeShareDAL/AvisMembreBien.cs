@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeShareDAL
 {
-    class AvisMembreBien
+    public class AvisMembreBien
     {
         #region Field
 

@@ -8,9 +8,9 @@
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
             <div class="row">
-                <button class="btn btn-success">Mes biens</button><br />
-                <button class="btn btn-success">Ajouter un bien</button><br />
-                <button class="btn btn-success">Les demandes d'échanges</button><br />
+                @Html.ActionLink("Mes Biens", "BiensMbre", new { id = SessionTools.membre.idMembre }, new { @class="btn btn-success" })<br /><br />
+                <button class="btn btn-success">Ajouter un bien</button><br /><br />
+                <button class="btn btn-success">Les demandes d'échanges</button><br /><br />
             </div>
         </div>
     </div>

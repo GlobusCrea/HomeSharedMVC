@@ -23,5 +23,26 @@ namespace HomeSharedMVC.Areas.Admin.Controllers
             lstBiens = BienEchange.getBiensByMbre(id);
             return View(lstBiens);
         }
+
+        [HttpGet]
+        public ActionResult addMembre()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult addMembre(Membre m)
+        {
+            m.saveMembre();
+            return RedirectToRoute(new { area = "", controller = "Home", action = "lstMembres" });
+        }
+
+        [HttpGet]
+        public ActionResult deleteMembre(int id)
+        {
+            Membre m = Membre.getOneMembre(id);
+            m.deleteMembre();
+            return RedirectToRoute(new { area = "", controller = "Home", action = "lstMembres" });
+        }
 	}
-}
+}   

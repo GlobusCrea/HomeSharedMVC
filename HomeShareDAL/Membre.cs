@@ -98,7 +98,7 @@ namespace HomeShareDAL
         /// <returns>Le membre dont l'identifiant est passé en paramètre</returns>
         public static Membre getOneMembre(int idMembre)
         {
-            List<Dictionary<string, object>> unMbre = GestionConnexion.Instance.getData("SELECT * FROM Membre WHERE idAuteur =" + idMembre);
+            List<Dictionary<string, object>> unMbre = GestionConnexion.Instance.getData("SELECT * FROM Membre WHERE idMembre =" + idMembre);
             Membre mbre = new Membre();
             mbre.getChampsMbre(unMbre[0]);
             return mbre;
@@ -173,8 +173,55 @@ namespace HomeShareDAL
             this.Password = item["Password"].ToString();
         }
 
+        /// <summary>
+        /// Ajouter ou modifier un membre
+        /// </summary>
+        /// <returns></returns>
+        public bool saveMembre()
+        {
+            string strRequest = "";
+
+            if (this.idMembre == 0)
+            {
+                strRequest = "INSERT INTO Membre (Nom,Prenom,Email,Pays,Telephone,Login,Password) VALUES (@Nom, @Prenom, @Email, @Pays, @Telephone, @Login, @Password)";
+            }
+            else
+            {
+                strRequest = "UPDATE Membre SET Nom = @Nom,Prenom = @Prenom,Email = @Email,Pays = @pays,Telephone = @Telephone,Login = @Login,Password = @Password WHERE idAuteur = " + this.idMembre;
+            }
+
+            Dictionary<string, object> ValueToSave = new Dictionary<string, object>();
+            ValueToSave["Nom"] = this.Nom;
+            ValueToSave["Prenom"] = this.Prenom;
+            ValueToSave["Email"] = this.Email;
+            ValueToSave["Pays"] = this.Pays;
+            ValueToSave["Telephone"] = this.Telephone;
+            ValueToSave["Login"] = this.Login;
+            ValueToSave["Password"] = this.Password;
+
+            if (GestionConnexion.Instance.saveData(strRequest, GenerateKey.DB, ValueToSave))
+            {
+                if (this.idMembre == 0) GestionConnexion.Instance.getLastGenerateId();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Supprimer un auteur
+        /// </summary>
+        /// <returns></returns>
+        public bool deleteMembre()
+        {
+            string strRequest = "DELETE FROM Membre WHERE idMembre = @idMembre";
+            Dictionary<string, object> ValueToDelete = new Dictionary<string, object>();
+            ValueToDelete["idMembre"] = this.idMembre;
+            return GestionConnexion.Instance.saveData(strRequest, GenerateKey.APP, ValueToDelete);
+        }
 
         #endregion
-
     }
 }

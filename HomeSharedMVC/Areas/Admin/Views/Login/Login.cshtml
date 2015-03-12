@@ -19,14 +19,16 @@
     <div class="spacer">
         <div class="row register">
             <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
-                <form method="post" action="~/Admin/Login/Register">
-                    <h2>Inscription</h2>
-                    <input type="text" class="form-control" placeholder="Full Name" name="form_name">
-                    <input type="text" class="form-control" placeholder="Enter Email" name="form_email">
-                    <input type="password" class="form-control" placeholder="Password" name="form_phone">
-                    <input type="password" class="form-control" placeholder="Confirm Password" name="form_phone">
-                    <textarea rows="6" class="form-control" placeholder="Address" name="form_message"></textarea>
-                    <button type="submit" class="btn btn-success" name="Submit">Register</button>
+                <h2>Inscription</h2>
+                <form method="post" action="~/Admin/Membre/addMembre">
+                    <input type="text" class="form-control" placeholder="Nom" name="Nom">
+                    <input type="text" class="form-control" placeholder="Prénom" name="Prenom">
+                    <input type="text" class="form-control" placeholder="Email" name="Email">
+                    <input type="number" class="form-control" placeholder="Pays" name="Pays">
+                    <input type="text" class="form-control" placeholder="Téléphone" name="Telephone">
+                    <input type="text" class="form-control" placeholder="Login" name="Login">
+                    <input type="text" class="form-control" placeholder="Password" name="Password">
+                    <button type="submit" class="btn btn-success" name="Submit">Inscription</button>
                 </form>
             </div>
         </div>

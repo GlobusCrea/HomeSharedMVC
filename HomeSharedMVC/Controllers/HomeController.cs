@@ -22,5 +22,12 @@ namespace HomeSharedMVC.Controllers
             whp.lstBiensDerniersEchange = BienEchange.getDernierBien();
             return View("Index", whp);
         }
+
+        public ActionResult lstMembres()
+        {
+            List<Membre> lstMbres = new List<Membre>();
+            lstMbres = Membre.getAllMembres();
+            return View(lstMbres);
+        }
     }
 }

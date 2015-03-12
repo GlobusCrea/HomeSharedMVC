@@ -205,6 +205,7 @@
     <Content Include="Views\Home\_lstMeilleursBiens.cshtml" />
     <Content Include="Views\Home\_lstDerniersBiens.cshtml" />
     <Content Include="Views\Home\Design.cshtml" />
+    <Content Include="Views\Home\lstMembres.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

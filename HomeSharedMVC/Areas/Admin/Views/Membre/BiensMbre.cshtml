@@ -14,7 +14,11 @@
 </head>
 <body>
     <p>
+        <div class="col-lg-2 col-sm-2 "><a href="#"><img src="~/Content/images/agents/2.jpg" class="img-responsive" alt="agent name"></a></div>
         @Html.Proprio()
+    </p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
@@ -49,8 +53,5 @@
         </tr>
     }
     </table>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
 </body>
 </html>

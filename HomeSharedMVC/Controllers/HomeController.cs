@@ -18,8 +18,9 @@ namespace HomeSharedMVC.Controllers
         public ActionResult Index()
         { 
             Wrapper whp = new Wrapper();
-            whp.lstBiensMeilleursAvis = BienEchange.getDernierBien();
+            whp.lstBiensMeilleursAvis = BienEchange.getMeilleursAvis();
             whp.lstBiensDerniersEchange = BienEchange.getDernierBien();
+            whp.lstBienCinqDerniers = BienEchange.getCinqDernierBien();
             return View("Index", whp);
         }
 
@@ -28,6 +29,18 @@ namespace HomeSharedMVC.Controllers
             List<Membre> lstMbres = new List<Membre>();
             lstMbres = Membre.getAllMembres();
             return View(lstMbres);
+        }
+
+        // AJOUT POUR UNIT TESTING
+        public ActionResult About()
+        {
+            ViewBag.Message = "Wad14. Unit test epreuve";
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
         }
     }
 }

@@ -1,0 +1,170 @@
+﻿@model HomeShareDAL.BienEchange
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>BienEchange</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idBien)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.idBien)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.titre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.titre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DescCourte)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DescCourte)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DescLong)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DescLong)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NbrePerson)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NbrePerson)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.idPays)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.idPays)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Ville)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ville)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Rue)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Rue)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Numero)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Numero)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CP)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CP)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Photo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Photo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Assurance)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Assurance)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.isEnabled)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.isEnabled)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DisabledDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DisabledDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Latitude)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Longitude)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.idMembre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.idMembre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateCreation)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -239,11 +239,11 @@ namespace HomeShareDAL
         }
 
         /// <summary>
-        /// Permet d'obtenir la liste des biens liée au pays
+        /// Permet d'obtenir la liste des biens liée au pays (by id)
         /// </summary>
         /// <param name="idP">identifiant du pays</param>
         /// <returns>La liste des biens dont l'identifiant est passé en paramètre</returns>
-        public static List<BienEchange> getBiensByPays(int idP)
+        public static List<BienEchange> getBiensByidPays(int idP)
         {
             string strRequest = @"SELECT * FROM BienEchange WHERE Pays = " + idP;
             List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
@@ -251,6 +251,26 @@ namespace HomeShareDAL
             if (biensDatas.Count < 1) return null;
 
             foreach(Dictionary<string,object> item in biensDatas)
+            {
+                BienEchange biens = getChampsBiens(item);
+                lstBiens.Add(biens);
+            }
+            return lstBiens;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir la liste des biens liée au pays (by string)
+        /// </summary>
+        /// <param name="strP">identifiant du pays</param>
+        /// <returns>La liste des biens dont l'identifiant est passé en paramètre</returns>
+        public static List<BienEchange> getBiensBystrPays(string strP)
+        {
+            string strRequest = @"SELECT * FROM BienEchange INNER JOIN Pays ON BienEchange.Pays = Pays.idPays WHERE Libelle = '" + strP + "'";
+            List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
+            List<BienEchange> lstBiens = new List<BienEchange>();
+            if (biensDatas.Count < 1) return null;
+
+            foreach (Dictionary<string, object> item in biensDatas)
             {
                 BienEchange biens = getChampsBiens(item);
                 lstBiens.Add(biens);
@@ -309,6 +329,24 @@ namespace HomeShareDAL
             BienEchange biens = getChampsBiens(biensDatas[0]);
             lstBiens.Add(biens);
             
+            return lstBiens;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir les cinqs derniers biens en échange
+        /// </summary>
+        public static List<BienEchange> getCinqDernierBien()
+        {
+            string strRequest = @"SELECT * FROM Vue_CinqDernierBiens";
+            List<Dictionary<string, object>> biensDatas = GestionConnexion.Instance.getData(strRequest);
+            List<BienEchange> lstBiens = new List<BienEchange>();
+            if (biensDatas.Count < 1) return null;
+
+            foreach (Dictionary<string, object> item in biensDatas)
+            {
+                BienEchange biens = getChampsBiens(item);
+                lstBiens.Add(biens);
+            }
             return lstBiens;
         }
 

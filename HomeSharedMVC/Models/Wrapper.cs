@@ -10,6 +10,7 @@ namespace HomeSharedMVC.Models
     {
         List<BienEchange> _lstBiensMeilleursAvis;
         List<BienEchange> _lstBiensDerniersEchange;
+        List<BienEchange> _lstBienCinqDerniers;
         Membre _mbre;
 
         public List<BienEchange> lstBiensMeilleursAvis
@@ -22,6 +23,12 @@ namespace HomeSharedMVC.Models
         {
             get { return _lstBiensDerniersEchange; }
             set { _lstBiensDerniersEchange = value; }
+        }
+
+        public List<BienEchange> lstBienCinqDerniers
+        {
+            get { return _lstBienCinqDerniers; }
+            set { _lstBienCinqDerniers = value; }
         }
 
         public Membre mbre

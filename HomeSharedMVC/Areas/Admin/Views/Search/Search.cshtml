@@ -1,0 +1,143 @@
+﻿@model IEnumerable<HomeShareDAL.BienEchange>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idBien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.titre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescCourte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescLong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbrePerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idPays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ville)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisabledDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idMembre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreation)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idBien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.titre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescCourte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescLong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrePerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idPays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ville)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assurance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisabledDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idMembre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

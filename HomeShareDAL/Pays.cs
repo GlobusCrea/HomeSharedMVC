@@ -42,7 +42,7 @@ namespace HomeShareDAL
         /// </summary>
         public List<BienEchange> LstBiens
         {
-            get { return BienEchange.getBiensByPays(this.idPays); }
+            get { return BienEchange.getBiensByidPays(this.idPays); }
         }
 
         #endregion

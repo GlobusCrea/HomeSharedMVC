@@ -168,7 +168,7 @@ namespace HomeShareDAL
         /// <summary>
         /// Propriété permettant de récupérer les options liées au bien
         /// </summary>
-        public OptionsBien OptionsParBiens
+        public List<OptionsBien> OptionsParBiens
         {
             get { return OptionsBien.getOptionsByBien(this.idBien); }
         }

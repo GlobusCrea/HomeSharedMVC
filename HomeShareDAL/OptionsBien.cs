@@ -40,18 +40,21 @@ namespace HomeShareDAL
 
         #region Static
 
-        public static OptionsBien getOptionsByBien(int idBien)
+        public static List<OptionsBien> getOptionsByBien(int idBien)
         {
             string strRequest = @"SELECT * FROM OptionsBien WHERE idBien = " + idBien;
             List<Dictionary<string, object>> OptionDatas = GestionConnexion.Instance.getData(strRequest);
-            OptionsBien op = new OptionsBien();
+            List<OptionsBien> lstOp = new List<OptionsBien>();
+            if (OptionDatas.Count < 1) return null;
+
             foreach(Dictionary<string, object> item in OptionDatas)
             {
+                OptionsBien op = new OptionsBien();
                 op.idBien = BienEchange.getOneBien((int)item["idBien"]);
                 op.idOption = Options.getOneOption((int)item["idOption"]);
                 op.Valeur = item["Valeur"].ToString();
             }
-            return op;
+            return lstOp;
         }
 
         #endregion
